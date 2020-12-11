@@ -1,0 +1,12 @@
+---
+collections:
+  - name: ansible.netcommon
+  - name: ansible.utils
+  - name: arista.eos
+  - name: cisco.ios
+  - name: cisco.iosxr
+  - name: cisco.nxos
+  - name: frr.frr
+  - name: junipernetworks.junos
+  - name: openvswitch.openvswitch
+  - name: vyos.vyos
