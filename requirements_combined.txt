@@ -1,0 +1,9 @@
+ansible-pylibssh  # from collection ansible.netcommon,cisco.ios,vyos.vyos
+jxmlease  # from collection ansible.netcommon,junipernetworks.junos
+ncclient  # from collection ansible.netcommon,cisco.iosxr,junipernetworks.junos
+selectors2  # from collection ansible.netcommon
+netaddr  # from collection ansible.netcommon
+paramiko  # from collection ansible.netcommon,arista.eos,cisco.ios,cisco.iosxr,cisco.nxos,junipernetworks.junos,vyos.vyos
+xmltodict  # from collection ansible.netcommon,junipernetworks.junos
+lxml  # from collection cisco.iosxr
+scp  # from collection cisco.nxos,junipernetworks.junos
