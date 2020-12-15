@@ -7,6 +7,8 @@ if [ "$DIRTY" -ne 0 ]; then
     echo "    tox -ebuild"
     echo ""
     echo "And commit changes."
+    git status
+    git diff
     exit 1
 fi
 
