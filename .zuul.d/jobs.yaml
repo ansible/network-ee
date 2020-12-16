@@ -19,13 +19,18 @@
       tox_install_siblings: false
 
 - job:
-    name: network-ee-build-container-image
+    name: network-ee-build-container-image-base
+    abstract: true
     parent: ansible-build-container-image
     description: Build network-ee container image
     timeout: 2700
+
+- job:
+    name: network-ee-build-container-image
+    parent: ansible-build-container-image-base
     provides: network-ee-container-image
     requires: ansible-runner-container-image
-    vars: &vars
+    vars: &network_ee_image_vars
       container_images: &container_images
         - context: .
           registry: quay.io
@@ -33,8 +38,26 @@
           tags:
             # If zuul.tag is defined: [ '3', '3.19', '3.19.0' ].  Only works for 3-component tags.
             # Otherwise: ['latest']
-            &imagetag "{{ zuul.tag is defined | ternary([zuul.get('tag', '').split('.')[0], '.'.join(zuul.get('tag', '').split('.')[:2]), zuul.get('tag', '')], ['latest']) }}"
+            "{{ zuul.tag is defined | ternary([zuul.get('tag', '').split('.')[0], '.'.join(zuul.get('tag', '').split('.')[:2]), zuul.get('tag', '')], ['latest']) }}"
       docker_images: *container_images
+
+- job:
+    name: network-ee-build-container-image-stable2.9
+    parent: ansible-build-container-image-base
+    provides: network-ee-stable-2.9-container-image
+    requires: ansible-runner-stable-2.9-container-image
+    vars: &network_ee_stable_2_9_image_vars
+      container_images: &container_images_stable_2_9
+        - context: .
+          build_args:
+            - ANSIBLE_RUNNER_IMAGE=quay.io/ansible/ansible-runner:stable-2.9-devel
+          registry: quay.io
+          repository: quay.io/ansible/network-ee
+          tags:
+            # If zuul.tag is defined: [ '3', '3.19', '3.19.0' ].  Only works for 3-component tags.
+            # Otherwise: ['latest']
+            ['stable-2.9-latest']
+      docker_images: *container_images_stable_2_9
 
 - job:
     name: network-ee-upload-container-image
@@ -43,4 +66,4 @@
     timeout: 2700
     provides: network-ee-container-image
     requires: ansible-runner-container-image
-    vars: *vars
+    vars: *network_ee_image_vars

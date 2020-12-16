@@ -1,4 +1,5 @@
-FROM quay.io/ansible/ansible-runner:devel as galaxy
+ARG ANSIBLE_RUNNER_IMAGE="quay.io/ansible/ansible-runner:devel"
+FROM "$ANSIBLE_RUNNER_IMAGE" as galaxy
 
 ADD requirements.yml /build/
 
@@ -13,7 +14,7 @@ ADD requirements_combined.txt /tmp/src/requirements.txt
 ADD bindep_combined.txt /tmp/src/bindep.txt
 RUN assemble
 
-FROM quay.io/ansible/ansible-runner:devel
+FROM "$ANSIBLE_RUNNER_IMAGE" as galaxy
 
 
 COPY --from=galaxy /usr/share/ansible/roles /usr/share/ansible/roles
