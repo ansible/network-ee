@@ -13,3 +13,8 @@
         - network-ee-upload-container-image:
             vars:
               upload_container_image_promote: false
+    periodic:
+      jobs:
+        - network-ee-upload-container-image:
+            vars:
+              upload_container_image_promote: false
