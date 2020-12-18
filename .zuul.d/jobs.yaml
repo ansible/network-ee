@@ -17,7 +17,7 @@
     nodeset: ubuntu-bionic-1vcpu
     vars:
       tox_envlist: ansible-builder
-      tox_install_siblings: false
+      tox_package_name: "{{ zuul.project.short_name }}"
 
 - job:
     name: network-ee-build-container-image
