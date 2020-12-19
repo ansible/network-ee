@@ -3,3 +3,4 @@ libyaml-devel [test platform:rpm]  # from collection ansible.netcommon, openvswi
 libyaml-dev [test platform:dpkg]  # from collection ansible.netcommon, openvswitch.openvswitch
 python3-devel [test platform:rpm]  # from collection ansible.netcommon, ansible.utils, arista.eos, cisco.ios, cisco.iosxr, cisco.nxos, frr.frr, junipernetworks.junos, vyos.vyos
 python3 [test platform:rpm]  # from collection ansible.netcommon, ansible.utils, arista.eos, cisco.ios, cisco.iosxr, cisco.nxos, frr.frr, junipernetworks.junos, vyos.vyos
+python38-lxml
