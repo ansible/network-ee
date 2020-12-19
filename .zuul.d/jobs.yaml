@@ -28,11 +28,15 @@
     requires:
       - ansible-runner-container-image
       - python-builder-container-image
+    required-projects:
+      - github.com/ansible/pylibssh
     vars: &vars
       container_images: &container_images
         - context: .
           registry: quay.io
           repository: quay.io/ansible/network-ee
+          siblings:
+            - github.com/ansible/pylibssh
           tags:
             # If zuul.tag is defined: [ '3', '3.19', '3.19.0' ].  Only works for 3-component tags.
             # Otherwise: ['latest']

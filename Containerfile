@@ -9,6 +9,8 @@ RUN mkdir -p /usr/share/ansible/roles /usr/share/ansible/collections
 
 FROM quay.io/ansible/python-builder:latest as builder
 
+COPY . /tmp/src
+
 ADD _build/requirements_combined.txt /tmp/src/requirements.txt
 ADD _build/bindep_combined.txt /tmp/src/bindep.txt
 RUN assemble
