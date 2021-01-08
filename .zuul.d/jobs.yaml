@@ -55,7 +55,7 @@
         - context: tests
           registry: quay.io
           repository: quay.io/ansible/network-ee-unit-tests
-          target: network-ee-sanity-tests
+          target: network-ee-unit-tests
           tags: *imagetag
       docker_images: *network_ee_container_images
 
