@@ -23,13 +23,18 @@
     name: network-ee-build-container-image
     parent: ansible-build-container-image
     description: Build network-ee container image
-    timeout: 2700
-    provides: network-ee-container-image
+    timeout: 3600
+    provides:
+      - network-ee-container-image
+      - network-ee-sanity-tests-container-image
+      - network-ee-tests-container-image
+      - network-ee-unit-tests-container-image
     requires:
       - ansible-runner-container-image
       - python-builder-container-image
-    vars: &vars
-      container_images: &container_images
+    nodeset: ubuntu-bionic-4vcpu
+    vars: &network_ee_vars
+      container_images: &network_ee_container_images
         - context: .
           registry: quay.io
           repository: quay.io/ansible/network-ee
@@ -37,15 +42,35 @@
             # If zuul.tag is defined: [ '3', '3.19', '3.19.0' ].  Only works for 3-component tags.
             # Otherwise: ['latest']
             &imagetag "{{ zuul.tag is defined | ternary([zuul.get('tag', '').split('.')[0], '.'.join(zuul.get('tag', '').split('.')[:2]), zuul.get('tag', '')], ['latest']) }}"
-      docker_images: *container_images
+        - context: tests
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-tests
+          target: network-ee-tests
+          tags: *imagetag
+        - context: tests
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-sanity-tests
+          target: network-ee-sanity-tests
+          tags: *imagetag
+        - context: tests
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-unit-tests
+          target: network-ee-sanity-tests
+          tags: *imagetag
+      docker_images: *network_ee_container_images
 
 - job:
     name: network-ee-upload-container-image
     parent: ansible-upload-container-image
     description: Build network-ee container image and upload to quay.io
-    timeout: 2700
-    provides: network-ee-container-image
+    timeout: 3600
+    provides:
+      - network-ee-container-image
+      - network-ee-sanity-tests-container-image
+      - network-ee-tests-container-image
+      - network-ee-unit-tests-container-image
     requires:
       - ansible-runner-container-image
       - python-builder-container-image
-    vars: *vars
+    nodeset: ubuntu-bionic-4vcpu
+    vars: *network_ee_vars
