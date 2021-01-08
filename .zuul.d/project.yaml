@@ -3,18 +3,26 @@
     check:
       jobs:
         - network-ee-build-container-image
+        - network-ee-tests-build-container-image
         - network-ee-tox-ansible-builder
     gate:
       jobs:
         - network-ee-build-container-image
+        - network-ee-tests-build-container-image
         - network-ee-tox-ansible-builder
     post:
       jobs:
         - network-ee-upload-container-image:
             vars:
               upload_container_image_promote: false
+        - network-ee-tests-upload-container-image:
+            vars:
+              upload_container_image_promote: false
     periodic:
       jobs:
         - network-ee-upload-container-image:
+            vars:
+              upload_container_image_promote: false
+        - network-ee-tests-upload-container-image:
             vars:
               upload_container_image_promote: false
