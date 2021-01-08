@@ -1,0 +1,9 @@
+coverage==4.5.4
+flake8
+pylint
+rstcheck
+voluptuous
+yamllint
+
+# units
+pytest-xdist
