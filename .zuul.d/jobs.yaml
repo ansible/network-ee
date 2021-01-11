@@ -14,7 +14,7 @@
       - python-builder-container-image
     required-projects:
       - github.com/ansible/ansible-builder
-    nodeset: ubuntu-bionic-1vcpu
+    nodeset: ubuntu-bionic-4vcpu
     vars:
       tox_envlist: ansible-builder
       tox_package_name: "{{ zuul.project.short_name }}"
