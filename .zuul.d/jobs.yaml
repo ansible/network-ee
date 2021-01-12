@@ -41,6 +41,8 @@
     vars: &network_ee_image_vars
       container_images: &network_ee_container_images
         - context: .
+          build_args:
+            - ANSIBLE_GALAXY_CLI_COLLECTION_OPTS=--pre
           registry: quay.io
           repository: quay.io/ansible/network-ee
           tags:
