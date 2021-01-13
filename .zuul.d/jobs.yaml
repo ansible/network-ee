@@ -26,6 +26,8 @@
     requires:
       - python-builder-container-image
     nodeset: ubuntu-bionic-4vcpu
+    vars:
+      zuul_work_dir: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}"
 
 - job:
     name: network-ee-build-container-image
