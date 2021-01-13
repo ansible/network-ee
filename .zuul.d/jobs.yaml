@@ -22,6 +22,9 @@
 - job:
     name: network-ee-container-image-base
     abstract: true
+    dependencies:
+      - name: ansible-buildset-registry
+        soft: true
     timeout: 3600
     requires:
       - python-builder-container-image
