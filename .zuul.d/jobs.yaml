@@ -91,7 +91,7 @@
           registry: quay.io
           repository: quay.io/ansible/network-ee
           tags:
-            &imagetag_stable_2_9 ['stable-2.9-latest']
+            &imagetag_stable_2_9 ['stable-2.9']
         - context: tests
           registry: quay.io
           repository: quay.io/ansible/network-ee-tests
