@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: Setup download-artifact-fork role
+      include_role:
+        name: download-artifact-fork
+      vars:
+        download_artifact_directory: "{{ zuul_work_dir }}/_build/collections"
+        download_artifact_type: ansible_collection
+
+    - name: Update requirements.yaml file
+      replace:
+        path: "{{ zuul_work_dir }}/_build/requirements.yml"
+        regexp: "{{ item.name }}$"
+        replace: "collections/{{ item.url | basename }}"
+      with_items: "{{ zuul.artifacts }}"
+      when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"

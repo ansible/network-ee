@@ -1,7 +1,16 @@
+FROM quay.io/ansible/network-ee:latest as requirements
+# =============================================================================
+
+WORKDIR /usr/local/lib/python3.8/site-packages/ansible_test/_data/requirements
+RUN mkdir -p /tmp/src \
+  && cp constraints.txt /tmp/src/upper-constraints.txt \
+  && cat sanity.*.txt units.txt | sort -u > /tmp/src/requirements.txt
+
 FROM quay.io/ansible/python-builder:latest as builder
 # =============================================================================
 
 ARG ZUUL_SIBLINGS=""
+COPY --from=requirements /tmp/src /tmp/src
 COPY . /tmp/src
 RUN assemble
 
