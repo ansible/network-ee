@@ -1,0 +1,21 @@
+---
+- project-template:
+    name: network-ee-container-image-jobs
+    check:
+      jobs: &jobs
+        - ansible-buildset-registry
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/arista.eos
+              - name: github.com/ansible-collections/cisco.ios
+              - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/cisco.nxos
+              - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/vyos.vyos
+        - network-ee-build-container-image
+        - network-ee-build-container-image-stable-2.9
+    gate:
+      jobs: *jobs

@@ -27,7 +27,16 @@
       - python-builder-container-image
     nodeset: ubuntu-bionic-4vcpu
     vars:
-      zuul_work_dir: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}"
+      zuul_work_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}"
+
+- job:
+    name: network-ee-build-container-image-base
+    parent: network-ee-container-image-base
+    abstract: true
+    pre-run: playbooks/network-ee-build-container-image-base/pre.yaml
+    dependencies:
+      - ansible-buildset-registry
+      - build-ansible-collection
 
 - job:
     name: network-ee-build-container-image
@@ -70,7 +79,7 @@
 
 - job:
     name: network-ee-build-container-image
-    parent: network-ee-container-image-base
+    parent: network-ee-build-container-image-base
 
 - job:
     name: network-ee-build-container-image-stable-2.9
@@ -111,7 +120,7 @@
 
 - job:
     name: network-ee-build-container-image-stable-2.9
-    parent: network-ee-container-image-base
+    parent: network-ee-build-container-image-base
 
 - job:
     name: network-ee-upload-container-image
