@@ -23,6 +23,8 @@
     name: network-ee-container-image-base
     abstract: true
     timeout: 3600
+    required-projects:
+      - github.com/ansible/network-ee
     requires:
       - python-builder-container-image
     nodeset: ubuntu-bionic-4vcpu
