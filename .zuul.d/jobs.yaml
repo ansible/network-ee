@@ -37,7 +37,6 @@
     abstract: true
     pre-run: playbooks/network-ee-build-container-image-base/pre.yaml
     dependencies:
-      - ansible-buildset-registry
       - build-ansible-collection
 
 - job:
