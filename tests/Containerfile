@@ -1,10 +1,20 @@
-FROM quay.io/ansible/network-ee:latest as requirements
+ARG NETWORK_EE_IMAGE=quay.io/ansible/network-ee:latest
+
+FROM $NETWORK_EE_IMAGE as requirements
 # =============================================================================
 
 WORKDIR /usr/local/lib/python3.8/site-packages/ansible_test/_data/requirements
 RUN mkdir -p /tmp/src \
   && cp constraints.txt /tmp/src/upper-constraints.txt \
-  && cat sanity.*.txt units.txt | sort -u > /tmp/src/requirements.txt
+  && cat units.txt | sort -u > /tmp/src/requirements.txt
+
+RUN if [ -f sanity.txt ] ; then \
+      echo "Installing sanity.txt requirements" ; \
+      cat sanity.txt | sort -u >> /tmp/src/requirements.txt ; \
+    else \
+      echo "Installing sanity.*.txt requirements" ; \
+      cat sanity.*.txt | sort -u >> /tmp/src/requirements.txt ; \
+    fi
 
 FROM quay.io/ansible/python-builder:latest as builder
 # =============================================================================
@@ -14,7 +24,7 @@ COPY --from=requirements /tmp/src /tmp/src
 COPY . /tmp/src
 RUN assemble
 
-FROM quay.io/ansible/network-ee:latest as network-ee-tests
+FROM $NETWORK_EE_IMAGE as network-ee-tests
 # =============================================================================
 
 COPY --from=builder /output/ /output/

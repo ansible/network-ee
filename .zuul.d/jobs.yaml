@@ -103,16 +103,20 @@
           tags:
             &imagetag_stable_2_9 ['stable-2.9']
         - context: tests
+          build_args: &tests_buildargs_stable_2_9
+            - NETWORK_EE_IMAGE=quay.io/ansible/network-ee:stable-2.9
           registry: quay.io
           repository: quay.io/ansible/network-ee-tests
           target: network-ee-tests
           tags: *imagetag_stable_2_9
         - context: tests
+          build_args: *tests_buildargs_stable_2_9
           registry: quay.io
           repository: quay.io/ansible/network-ee-sanity-tests
           target: network-ee-sanity-tests
           tags: *imagetag_stable_2_9
         - context: tests
+          build_args: *tests_buildargs_stable_2_9
           registry: quay.io
           repository: quay.io/ansible/network-ee-unit-tests
           target: network-ee-unit-tests
