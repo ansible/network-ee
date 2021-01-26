@@ -4,6 +4,9 @@ ncclient  # from collection ansible.netcommon,cisco.iosxr,junipernetworks.junos
 selectors2  # from collection ansible.netcommon
 netaddr  # from collection ansible.netcommon
 paramiko  # from collection ansible.netcommon,arista.eos,cisco.ios,cisco.iosxr,cisco.nxos,junipernetworks.junos,vyos.vyos
-xmltodict  # from collection ansible.netcommon,junipernetworks.junos
+xmltodict  # from collection ansible.netcommon,junipernetworks.junos,user
 lxml  # from collection cisco.iosxr
 scp  # from collection cisco.nxos,junipernetworks.junos
+jsonschema  # from collection user
+textfsm  # from collection user
+ttp  # from collection user
