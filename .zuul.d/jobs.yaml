@@ -43,11 +43,6 @@
     name: network-ee-build-container-image
     parent: ansible-build-container-image
     description: Build network-ee container images
-    provides:
-      - network-ee-container-image
-      - network-ee-sanity-tests-container-image
-      - network-ee-tests-container-image
-      - network-ee-unit-tests-container-image
     requires:
       - ansible-runner-container-image
     vars: &network_ee_image_vars
@@ -86,11 +81,6 @@
     name: network-ee-build-container-image-stable-2.9
     parent: ansible-build-container-image
     description: Build network-ee stable-2.9 container images
-    provides:
-      - network-ee-stable-2.9-container-image
-      - network-ee-sanity-tests-stable-2.9-container-image
-      - network-ee-tests-stable-2.9-container-image
-      - network-ee-unit-tests-stable-2.9-container-image
     requires:
       - ansible-runner-stable-2.9-container-image
     vars: &network_ee_stable_2_9_image_vars
@@ -131,11 +121,6 @@
     name: network-ee-upload-container-image
     parent: ansible-upload-container-image
     description: Build network-ee container images and upload to quay.io
-    provides:
-      - network-ee-container-image
-      - network-ee-sanity-tests-container-image
-      - network-ee-tests-container-image
-      - network-ee-unit-tests-container-image
     requires:
       - ansible-runner-container-image
     vars: *network_ee_image_vars
@@ -148,11 +133,6 @@
     name: network-ee-upload-container-image-stable-2.9
     parent: ansible-upload-container-image
     description: Build network-ee stable-2.9 container images and upload to quay.io
-    provides:
-      - network-ee-stable-2.9-container-image
-      - network-ee-sanity-tests-stable-2.9-container-image
-      - network-ee-tests-stable-2.9-container-image
-      - network-ee-unit-tests-stable-2.9-container-image
     requires:
       - ansible-runner-stable-2.9-container-image
     vars: *network_ee_stable_2_9_image_vars
