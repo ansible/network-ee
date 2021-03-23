@@ -18,6 +18,9 @@
         - network-ee-upload-container-image-stable-2.10:
             vars:
               upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.11:
+            vars:
+              upload_container_image_promote: false
     periodic:
       jobs:
         - network-ee-upload-container-image:
@@ -27,5 +30,8 @@
             vars:
               upload_container_image_promote: false
         - network-ee-upload-container-image-stable-2.10:
+            vars:
+              upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.11:
             vars:
               upload_container_image_promote: false

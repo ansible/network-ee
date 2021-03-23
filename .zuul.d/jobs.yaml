@@ -78,6 +78,46 @@
     parent: network-ee-build-container-image-base
 
 - job:
+    name: network-ee-build-container-image-stable-2.11
+    parent: ansible-build-container-image
+    description: Build network-ee stable-2.11 container images
+    requires:
+      - ansible-runner-stable-2.11-container-image
+    vars: &network_ee_stable_2_11_image_vars
+      container_images: &network_ee_container_images_stable_2_11
+        - context: .
+          build_args:
+            - ANSIBLE_RUNNER_IMAGE=quay.io/ansible/ansible-runner:stable-2.11-devel
+          registry: quay.io
+          repository: quay.io/ansible/network-ee
+          tags:
+            &imagetag_stable_2_11 ['stable-2.11']
+        - context: tests
+          build_args: &tests_buildargs_stable_2_11
+            - NETWORK_EE_IMAGE=quay.io/ansible/network-ee:stable-2.11
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-tests
+          target: network-ee-tests
+          tags: *imagetag_stable_2_11
+        - context: tests
+          build_args: *tests_buildargs_stable_2_11
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-sanity-tests
+          target: network-ee-sanity-tests
+          tags: *imagetag_stable_2_11
+        - context: tests
+          build_args: *tests_buildargs_stable_2_11
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-unit-tests
+          target: network-ee-unit-tests
+          tags: *imagetag_stable_2_11
+      docker_images: *network_ee_container_images_stable_2_11
+
+- job:
+    name: network-ee-build-container-image-stable-2.11
+    parent: network-ee-build-container-image-base
+
+- job:
     name: network-ee-build-container-image-stable-2.10
     parent: ansible-build-container-image
     description: Build network-ee stable-2.10 container images
@@ -179,6 +219,18 @@
 
 - job:
     name: network-ee-upload-container-image-stable-2.10
+    parent: network-ee-container-image-base
+
+- job:
+    name: network-ee-upload-container-image-stable-2.11
+    parent: ansible-upload-container-image
+    description: Build network-ee stable-2.11 container images and upload to quay.io
+    requires:
+      - ansible-runner-stable-2.11-container-image
+    vars: *network_ee_stable_2_11_image_vars
+
+- job:
+    name: network-ee-upload-container-image-stable-2.11
     parent: network-ee-container-image-base
 
 - job:
