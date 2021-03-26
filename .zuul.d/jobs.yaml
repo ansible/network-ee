@@ -2,7 +2,7 @@
 - job:
     name: network-ee-tox-ansible-builder
     parent: ansible-buildset-registry-consumer
-    timeout: 3600
+    timeout: 5400
     vars:
       container_command: podman
 
@@ -22,7 +22,7 @@
 - job:
     name: network-ee-container-image-base
     abstract: true
-    timeout: 3600
+    timeout: 5400
     required-projects:
       - github.com/ansible/network-ee
     requires:
