@@ -7,3 +7,5 @@ python38-six [platform:centos-8]  # from collection ansible.netcommon
 python38-cffi [platform:centos-8]  # from collection ansible.netcommon
 python38-cryptography [platform:centos-8]  # from collection ansible.netcommon
 python38-pycparser [platform:centos-8]  # from collection ansible.netcommon
+libxml2-dev [platform:dpkg]  # from collection cisco.iosxr
+libxslt-dev [platform:dpkg]  # from collection cisco.iosxr
