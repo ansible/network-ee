@@ -1,0 +1,7 @@
+ipaddress==1.0.23
+jxmlease==1.0.3
+netaddr==0.8.0
+selectors2==2.0.2
+textfsm==0.4.1
+ttp==0.6.0
+xmltodict==0.12.0
