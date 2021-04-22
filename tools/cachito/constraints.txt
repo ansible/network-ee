@@ -1,3 +1,5 @@
+awxkit==19.0.0
+python-dateutil==2.6.1
 ipaddress==1.0.23
 jxmlease==1.0.3
 netaddr==0.8.0
