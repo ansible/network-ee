@@ -1,9 +1,14 @@
 awxkit==19.0.0
+boto==2.49.0
+boto3==1.17.56
+botocore==1.20.56
+jmespath==0.10.0
 python-dateutil==2.6.1
 ipaddress==1.0.23
 jxmlease==1.0.3
 netaddr==0.8.0
 selectors2==2.0.2
+s3transfer==0.4.2
 textfsm==0.4.1
 ttp==0.6.0
 xmltodict==0.12.0
