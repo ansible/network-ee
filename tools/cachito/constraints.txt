@@ -8,12 +8,14 @@ boto3==1.17.56
 botocore==1.20.56
 ipaddress==1.0.23
 jmespath==0.10.0
+jsonschema==3.2.0
 jxmlease==1.0.3
 multidict==5.1.0
 ncclient==0.6.10
 netaddr==0.8.0
 paramiko==2.7.2
 pynacl==1.4.0
+pyrsistent==0.17.3
 python-dateutil==2.6.1
 s3transfer==0.4.2
 selectors2==2.0.2
