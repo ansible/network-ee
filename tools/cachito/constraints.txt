@@ -16,7 +16,6 @@ paramiko==2.7.2
 pynacl==1.4.0
 python-dateutil==2.6.1
 s3transfer==0.4.2
-selectors2==2.0.2
 textfsm==0.4.1
 ttp==0.6.0
 typing-extensions==3.7.4.3
