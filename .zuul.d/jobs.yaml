@@ -59,14 +59,15 @@
         - context: tests
           registry: quay.io
           repository: quay.io/ansible/network-ee-tests
-          target: network-ee-tests
           tags: *imagetag
         - context: tests
+          container_filename: Containerfile.ansible-test
           registry: quay.io
           repository: quay.io/ansible/network-ee-sanity-tests
           target: network-ee-sanity-tests
           tags: *imagetag
         - context: tests
+          container_filename: Containerfile.ansible-test
           registry: quay.io
           repository: quay.io/ansible/network-ee-unit-tests
           target: network-ee-unit-tests
@@ -93,20 +94,23 @@
           tags:
             &imagetag_stable_2_11 ['stable-2.11']
         - context: tests
-          build_args: &tests_buildargs_stable_2_11
+          build_args:
             - NETWORK_EE_IMAGE=quay.io/ansible/network-ee:stable-2.11
           registry: quay.io
           repository: quay.io/ansible/network-ee-tests
-          target: network-ee-tests
           tags: *imagetag_stable_2_11
         - context: tests
-          build_args: *tests_buildargs_stable_2_11
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.11
+          container_filename: Containerfile.ansible-test
           registry: quay.io
           repository: quay.io/ansible/network-ee-sanity-tests
           target: network-ee-sanity-tests
           tags: *imagetag_stable_2_11
         - context: tests
-          build_args: *tests_buildargs_stable_2_11
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.11
+          container_filename: Containerfile.ansible-test
           registry: quay.io
           repository: quay.io/ansible/network-ee-unit-tests
           target: network-ee-unit-tests
@@ -133,20 +137,23 @@
           tags:
             &imagetag_stable_2_10 ['stable-2.10']
         - context: tests
-          build_args: &tests_buildargs_stable_2_10
+          build_args:
             - NETWORK_EE_IMAGE=quay.io/ansible/network-ee:stable-2.10
           registry: quay.io
           repository: quay.io/ansible/network-ee-tests
-          target: network-ee-tests
           tags: *imagetag_stable_2_10
         - context: tests
-          build_args: *tests_buildargs_stable_2_10
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.10
+          container_filename: Containerfile.ansible-test
           registry: quay.io
           repository: quay.io/ansible/network-ee-sanity-tests
           target: network-ee-sanity-tests
           tags: *imagetag_stable_2_10
         - context: tests
-          build_args: *tests_buildargs_stable_2_10
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.10
+          container_filename: Containerfile.ansible-test
           registry: quay.io
           repository: quay.io/ansible/network-ee-unit-tests
           target: network-ee-unit-tests
@@ -173,20 +180,23 @@
           tags:
             &imagetag_stable_2_9 ['stable-2.9']
         - context: tests
-          build_args: &tests_buildargs_stable_2_9
+          build_args:
             - NETWORK_EE_IMAGE=quay.io/ansible/network-ee:stable-2.9
           registry: quay.io
           repository: quay.io/ansible/network-ee-tests
-          target: network-ee-tests
           tags: *imagetag_stable_2_9
         - context: tests
-          build_args: *tests_buildargs_stable_2_9
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.9
+          container_filename: Containerfile.ansible-test
           registry: quay.io
           repository: quay.io/ansible/network-ee-sanity-tests
           target: network-ee-sanity-tests
           tags: *imagetag_stable_2_9
         - context: tests
-          build_args: *tests_buildargs_stable_2_9
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.9
+          container_filename: Containerfile.ansible-test
           registry: quay.io
           repository: quay.io/ansible/network-ee-unit-tests
           target: network-ee-unit-tests

@@ -1,0 +1,9 @@
+ARG NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:latest
+
+FROM $NETWORK_EE_TESTS_IMAGE as network-ee-sanity-tests
+# =============================================================================
+CMD ["ansible-test", "sanity", "--python=3.8"]
+
+FROM $NETWORK_EE_TESTS_IMAGE as network-ee-unit-tests
+# =============================================================================
+CMD ["ansible-test", "units", "--python=3.8"]
