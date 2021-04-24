@@ -24,17 +24,9 @@ COPY --from=requirements /tmp/src /tmp/src
 COPY . /tmp/src
 RUN assemble
 
-FROM $NETWORK_EE_IMAGE as network-ee-tests
+FROM $NETWORK_EE_IMAGE
 # =============================================================================
 
 COPY --from=builder /output/ /output/
 RUN /output/install-from-bindep \
   && rm -rf /output/
-
-FROM network-ee-tests as network-ee-sanity-tests
-# =============================================================================
-CMD ["ansible-test", "sanity", "--python=3.8"]
-
-FROM network-ee-tests as network-ee-unit-tests
-# =============================================================================
-CMD ["ansible-test", "units", "--python=3.8"]
