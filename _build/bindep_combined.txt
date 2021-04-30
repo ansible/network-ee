@@ -3,9 +3,11 @@ libyaml-devel [test platform:rpm]  # from collection ansible.netcommon, openvswi
 libyaml-dev [test platform:dpkg]  # from collection ansible.netcommon, openvswitch.openvswitch
 python3-devel [test platform:rpm]  # from collection ansible.netcommon, ansible.utils, arista.eos, cisco.ios, cisco.iosxr, cisco.nxos, junipernetworks.junos, vyos.vyos
 python3 [test platform:rpm]  # from collection ansible.netcommon, ansible.utils, arista.eos, cisco.ios, cisco.iosxr, cisco.nxos, junipernetworks.junos, vyos.vyos
-python38-six [platform:centos-8]  # from collection ansible.netcommon
-python38-cffi [platform:centos-8]  # from collection ansible.netcommon
-python38-cryptography [platform:centos-8]  # from collection ansible.netcommon
-python38-pycparser [platform:centos-8]  # from collection ansible.netcommon
-libxml2-dev [platform:dpkg]  # from collection cisco.iosxr
-libxslt-dev [platform:dpkg]  # from collection cisco.iosxr
+python38-six [platform:centos-8 platform:rhel-8]  # from collection ansible.netcommon
+python38-lxml [platform:centos-8 platform:rhel-8]  # from collection ansible.netcommon, cisco.iosxr
+gcc [compile platform:centos-8 platform:rhel-8]  # from collection ansible.netcommon
+make [compile platform:centos-8 platform:rhel-8]  # from collection ansible.netcommon
+python38-devel [compile platform:centos-8 platform:rhel-8]  # from collection ansible.netcommon
+python38-cffi [platform:centos-8 platform:rhel-8]  # from collection ansible.netcommon
+python38-cryptography [platform:centos-8 platform:rhel-8]  # from collection ansible.netcommon
+python38-pycparser [platform:centos-8 platform:rhel-8]  # from collection ansible.netcommon
