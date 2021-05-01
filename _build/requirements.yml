@@ -3,6 +3,7 @@ collections:
   - name: ansible.netcommon
   - name: ansible.utils
   - name: arista.eos
+  - name: cisco.asa
   - name: cisco.ios
   - name: cisco.iosxr
   - name: cisco.nxos
