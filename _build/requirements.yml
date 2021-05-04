@@ -12,4 +12,5 @@ collections:
   - name: frr.frr
   - name: junipernetworks.junos
   - name: openvswitch.openvswitch
+  - name: servicenow.itsm
   - name: vyos.vyos
