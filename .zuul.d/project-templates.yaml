@@ -17,6 +17,7 @@
               - name: github.com/ansible-collections/frr.frr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/servicenow.itsm
               - name: github.com/ansible-collections/vyos.vyos
         - network-ee-build-container-image
         - network-ee-build-container-image-stable-2.9
