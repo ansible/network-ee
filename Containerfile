@@ -14,6 +14,12 @@ RUN ansible-galaxy collection install $ANSIBLE_GALAXY_CLI_COLLECTION_OPTS -r req
 FROM $PYTHON_BUILDER_IMAGE as builder
 ADD _build/requirements_combined.txt /tmp/src/requirements.txt
 ADD _build/bindep_combined.txt /tmp/src/bindep.txt
+ADD _build/build-requirements.txt /tmp/src/build-requirements.txt
+
+# NOTE(pabelanger): For downstream builds, we compile everything from source
+# over using existing wheels. Do this upstream too so we can better catch
+# issues.
+ENV PIP_OPTS="--no-binary :all: --no-build-isolation"
 RUN assemble
 
 FROM $ANSIBLE_RUNNER_IMAGE
