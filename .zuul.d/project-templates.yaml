@@ -20,8 +20,5 @@
               - name: github.com/ansible-collections/servicenow.itsm
               - name: github.com/ansible-collections/vyos.vyos
         - network-ee-build-container-image
-        - network-ee-build-container-image-stable-2.9
-        - network-ee-build-container-image-stable-2.10
-        - network-ee-build-container-image-stable-2.11
     gate:
       jobs: *jobs
