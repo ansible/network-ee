@@ -1,16 +1,7 @@
 ---
 collections:
-  - name: ansible.netcommon
+  - name: ansible.network
   - name: ansible.posix
-  - name: ansible.utils
-  - name: arista.eos
   - name: cisco.asa
-  - name: cisco.ios
-  - name: cisco.iosxr
-  - name: cisco.nxos
   - name: cloud.common
-  - name: frr.frr
-  - name: junipernetworks.junos
-  - name: openvswitch.openvswitch
   - name: servicenow.itsm
-  - name: vyos.vyos
