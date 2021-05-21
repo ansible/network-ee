@@ -3,6 +3,8 @@
     name: network-ee-tox-ansible-builder
     parent: ansible-buildset-registry-consumer
     timeout: 5400
+    irrelevant-files:
+      - tools/cachito/.*
     vars:
       container_command: podman
 
@@ -28,6 +30,8 @@
     requires:
       - python-builder-container-image
     nodeset: ubuntu-bionic-4vcpu
+    irrelevant-files:
+      - tools/cachito/.*
     vars:
       zuul_work_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}"
 
