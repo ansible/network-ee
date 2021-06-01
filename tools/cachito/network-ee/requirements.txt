@@ -7,7 +7,7 @@ boto==2.49.0
 boto3==1.17.56
 botocore==1.20.56
 cachetools==4.2.1
-certifi==2020.12.5
+git+https://github.com/ansible/system-certifi.git@d42a296f3b3f8f1800c8c168146368a83a393ac3#egg=certifi
 google-auth==1.29.0
 ipaddress==1.0.23
 jmespath==0.10.0
