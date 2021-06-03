@@ -1,3 +1,0 @@
-setuptools-scm==5.0.2
-expandvars==0.7.0
-toml==0.10.2
