@@ -3,6 +3,7 @@ collections:
   - name: ansible.netcommon
   - name: ansible.network
   - name: ansible.posix
+  - name: ansible.security
   - name: ansible.utils
   - name: arista.eos
   - name: cisco.asa
@@ -11,7 +12,10 @@ collections:
   - name: cisco.nxos
   - name: cloud.common
   - name: frr.frr
+  - name: ibm.qradar
   - name: junipernetworks.junos
   - name: openvswitch.openvswitch
   - name: servicenow.itsm
+  - name: splunk.es
+  - name: trendmicro.deepsec
   - name: vyos.vyos
