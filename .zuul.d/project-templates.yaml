@@ -19,6 +19,7 @@
               - name: github.com/ansible-collections/frr.frr
               - name: github.com/ansible-collections/ibm.qradar
               - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/kubernetes.core
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/servicenow.itsm
               - name: github.com/ansible-collections/splunk.es
