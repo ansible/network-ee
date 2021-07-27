@@ -14,6 +14,7 @@ collections:
   - name: frr.frr
   - name: ibm.qradar
   - name: junipernetworks.junos
+  - name: kubernetes.core
   - name: openvswitch.openvswitch
   - name: servicenow.itsm
   - name: splunk.es
