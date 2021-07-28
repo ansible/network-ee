@@ -5,6 +5,7 @@
       jobs: &jobs
         - build-ansible-collection:
             required-projects:
+              - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.network
               - name: github.com/ansible-collections/ansible.posix
@@ -24,6 +25,7 @@
               - name: github.com/ansible-collections/servicenow.itsm
               - name: github.com/ansible-collections/splunk.es
               - name: github.com/ansible-collections/trendmicro.deepsec
+              - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/vyos.vyos
         - network-ee-build-container-image
         - network-ee-build-container-image-stable-2.9
