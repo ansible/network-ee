@@ -30,4 +30,5 @@
         - network-ee-build-container-image-stable-2.10
         - network-ee-build-container-image-stable-2.11
     gate:
+      queue: integrated
       jobs: *jobs
