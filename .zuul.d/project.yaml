@@ -4,6 +4,7 @@
       - network-ee-container-image-jobs
     check:
       jobs: &jobs
+        - ansible-tox-linters
         - network-ee-tox-ansible-builder
     gate:
       jobs: *jobs
