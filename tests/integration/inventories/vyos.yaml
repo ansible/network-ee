@@ -1,0 +1,11 @@
+---
+appliance:
+  hosts:
+    vyos:
+      ansible_host: vyos.example.org
+      ansible_user: zuul
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: vyos.vyos.vyos
+    collection_name: vyos
+    collection_namespace: vyos
