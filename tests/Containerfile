@@ -22,11 +22,13 @@ FROM quay.io/ansible/python-builder:latest as builder
 ARG ZUUL_SIBLINGS=""
 COPY --from=requirements /tmp/src /tmp/src
 COPY . /tmp/src
+RUN curl --silent https://packages.microsoft.com/config/centos/8/prod.repo -o /etc/yum.repos.d/microsoft.repo
 RUN assemble
 
 FROM $NETWORK_EE_IMAGE
 # =============================================================================
 
 COPY --from=builder /output/ /output/
+RUN curl --silent https://packages.microsoft.com/config/centos/8/prod.repo -o /etc/yum.repos.d/microsoft.repo
 RUN /output/install-from-bindep \
   && rm -rf /output/
