@@ -14,7 +14,7 @@
       - ansible-builder-container-image
     required-projects:
       - github.com/ansible/ansible-builder
-    nodeset: ubuntu-bionic-4vcpu
+    nodeset: ubuntu-bionic-2vcpu
     vars:
       tox_envlist: ansible-builder
       tox_package_name: "{{ zuul.project.short_name }}"
@@ -27,7 +27,7 @@
       - github.com/ansible/network-ee
     requires:
       - ansible-builder-container-image
-    nodeset: ubuntu-bionic-4vcpu
+    nodeset: ubuntu-bionic-2vcpu
     vars:
       zuul_work_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}"
 
