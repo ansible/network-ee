@@ -1,0 +1,20 @@
+---
+ansible-navigator:
+  ansible:
+    cmdline: -vvv
+    config: ansible.cfg
+    inventories:
+      - inventories/hosts.yaml
+    playbook: playbooks/site.yaml
+  app: run
+  color:
+    enable: false
+  execution-environment:
+    image: quay.io/ansible/network-ee:latest
+    pull-policy: missing
+  logging:
+    file: logs/ansible-navigator.log
+    level: debug
+  mode: interactive
+  playbook-artifact:
+    save-as: logs/playbook_artifact.json
