@@ -11,6 +11,7 @@
               - name: github.com/ansible-collections/ansible.posix
               - name: github.com/ansible-collections/ansible.security
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/ansible.windows
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.asa
               - name: github.com/ansible-collections/cisco.ios

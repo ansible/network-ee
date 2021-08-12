@@ -6,6 +6,7 @@ collections:
   - name: ansible.posix
   - name: ansible.security
   - name: ansible.utils
+  - name: ansible.windows
   - name: arista.eos
   - name: cisco.asa
   - name: cisco.ios
