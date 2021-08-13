@@ -2,6 +2,8 @@
 - job:
     name: network-ee-tox-ansible-builder
     parent: ansible-buildset-registry-consumer
+    dependencies:
+      - ansible-buildset-registry
     timeout: 5400
     vars:
       container_command: podman
