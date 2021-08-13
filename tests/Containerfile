@@ -22,6 +22,7 @@ FROM quay.io/ansible/python-builder:latest as builder
 ARG ZUUL_SIBLINGS=""
 COPY --from=requirements /tmp/src /tmp/src
 COPY . /tmp/src
+RUN cat /tmp/src/test-requirements.txt | sort -u >> /tmp/src/requirements.txt
 RUN assemble
 
 FROM $NETWORK_EE_IMAGE
