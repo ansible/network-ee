@@ -3,13 +3,14 @@
     templates:
       - network-ee-container-image-jobs
     check:
-      jobs: &jobs
+      jobs: &id001
         - ansible-tox-linters
         - network-ee-tox-ansible-builder
     gate:
-      jobs: *jobs
+      jobs: *id001
     post:
-      jobs:
+      jobs: &id002
+        - ansible-buildset-registry
         - network-ee-upload-container-image:
             vars:
               upload_container_image_promote: false
@@ -23,16 +24,4 @@
             vars:
               upload_container_image_promote: false
     periodic:
-      jobs:
-        - network-ee-upload-container-image:
-            vars:
-              upload_container_image_promote: false
-        - network-ee-upload-container-image-stable-2.9:
-            vars:
-              upload_container_image_promote: false
-        - network-ee-upload-container-image-stable-2.10:
-            vars:
-              upload_container_image_promote: false
-        - network-ee-upload-container-image-stable-2.11:
-            vars:
-              upload_container_image_promote: false
+      jobs: *id002

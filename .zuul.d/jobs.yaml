@@ -221,6 +221,8 @@
 - job:
     name: network-ee-upload-container-image
     parent: network-ee-container-image-base
+    dependencies:
+      - ansible-buildset-registry
 
 - job:
     name: network-ee-upload-container-image-stable-2.10
@@ -233,6 +235,8 @@
 - job:
     name: network-ee-upload-container-image-stable-2.10
     parent: network-ee-container-image-base
+    dependencies:
+      - ansible-buildset-registry
 
 - job:
     name: network-ee-upload-container-image-stable-2.11
@@ -245,6 +249,8 @@
 - job:
     name: network-ee-upload-container-image-stable-2.11
     parent: network-ee-container-image-base
+    dependencies:
+      - ansible-buildset-registry
 
 - job:
     name: network-ee-upload-container-image-stable-2.9
@@ -257,3 +263,5 @@
 - job:
     name: network-ee-upload-container-image-stable-2.9
     parent: network-ee-container-image-base
+    dependencies:
+      - ansible-buildset-registry
