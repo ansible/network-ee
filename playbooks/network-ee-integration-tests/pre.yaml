@@ -3,6 +3,12 @@
   vars:
     _hosts_dict: {}
   tasks:
+    - name: Ensure python3.8 is present
+      become: true
+      package:
+        name: python38-devel
+        state: present
+
     - name: Install binary dependencies
       include_role:
         name: bindep
