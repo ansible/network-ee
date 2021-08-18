@@ -1,7 +1,7 @@
 ---
 ansible-navigator:
   ansible:
-    cmdline: -vvv
+    cmdline: -vvvv
     config: ansible.cfg
     inventories:
       - inventories/hosts.yaml
