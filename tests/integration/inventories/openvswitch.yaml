@@ -6,10 +6,11 @@ all:
       ansible_python_interpreter: /bin/python3.8
 appliance:
   hosts:
-    vyos:
+    openvswitch:
       ansible_host: openvswitch.example.org
       ansible_user: zuul
   vars:
+    ansible_network_os: openvswitch
     # NOTE(pabelanger): With stable-2.9 / stable-2.11 we need to force
     # /bin/python3.8 and not discover /usr/libexec/platform-python (python3.6)
     # ansible_python_interpreter: /bin/python3.8
