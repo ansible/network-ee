@@ -60,7 +60,7 @@
         newdata:
           appliance:
             vars:
-              ansible_python_interpreter: /bin/python3.8
+              ansible_python_interpreter: /usr/bin/python3.8
       when: container_image_version in ["stable-2.9", "stable-2.11"]
 
     - name: Write appliance inventory file
