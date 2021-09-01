@@ -63,6 +63,26 @@
               ansible_python_interpreter: /bin/python3.8
       when: container_image_version in ["stable-2.9", "stable-2.11"]
 
+    - name: Patch collection_name inventory data
+      set_fact:
+        _inventory_data: "{{ _inventory_data | combine(newdata, recursive=True) }}"
+      vars:
+        newdata:
+          appliance:
+            vars:
+              collection_name: "{{ collection_name }}"
+      when: collection_name is defined
+
+    - name: Patch collection_namespace inventory data
+      set_fact:
+        _inventory_data: "{{ _inventory_data | combine(newdata, recursive=True) }}"
+      vars:
+        newdata:
+          appliance:
+            vars:
+              collection_namespace: "{{ collection_namespace }}"
+      when: collection_namespace is defined
+
     - name: Write appliance inventory file
       copy:
         content: "{{ _inventory_data | to_nice_yaml(indent=2, explicit_start=True) }}"
