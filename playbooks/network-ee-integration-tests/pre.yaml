@@ -1,11 +1,13 @@
 ---
-- hosts: controller
-  vars:
-    _hosts_dict: {}
+- hosts: all
   tasks:
     - setup:
         gather_subset: '!all'
 
+- hosts: controller
+  vars:
+    _hosts_dict: {}
+  tasks:
     - name: Ensure python3.8 is present
       become: true
       package:
