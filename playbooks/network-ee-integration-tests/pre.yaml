@@ -3,6 +3,9 @@
   vars:
     _hosts_dict: {}
   tasks:
+    - setup:
+        gather_subset: '!all'
+
     - name: Ensure python3.8 is present
       become: true
       package:
