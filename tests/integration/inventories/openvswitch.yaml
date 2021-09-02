@@ -13,4 +13,3 @@ appliance:
     ansible_connection: ssh
     collection_name: openvswitch
     collection_namespace: openvswitch
-    prepare_ovs_tests_task: False
