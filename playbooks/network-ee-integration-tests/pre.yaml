@@ -61,7 +61,7 @@
           appliance:
             vars:
               ansible_python_interpreter: "{{ test_ansible_python_interpreter }}"
-      when: container_image_version in ["stable-2.9", "stable-2.11"] and ansible_connection != "ssh" and test_ansible_python_interpreter is defined
+      when: test_ansible_python_interpreter is defined
 
     - name: Write appliance inventory file
       copy:
