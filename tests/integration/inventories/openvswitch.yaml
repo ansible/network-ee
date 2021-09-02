@@ -1,0 +1,15 @@
+---
+all:
+  hosts:
+    localhost:
+      ansible_connection: local
+      ansible_python_interpreter: /usr/bin/python3.8
+appliance:
+  hosts:
+    openvswitch:
+      ansible_host: openvswitch.example.org
+      ansible_user: zuul
+  vars:
+    ansible_connection: ssh
+    collection_name: openvswitch
+    collection_namespace: openvswitch
