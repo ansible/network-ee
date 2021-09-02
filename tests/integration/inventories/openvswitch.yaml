@@ -3,7 +3,7 @@ all:
   hosts:
     localhost:
       ansible_connection: local
-      ansible_python_interpreter: /bin/python3.8
+      ansible_python_interpreter: /usr/bin/python3.8
 appliance:
   hosts:
     openvswitch:
