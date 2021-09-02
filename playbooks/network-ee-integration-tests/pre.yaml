@@ -60,8 +60,8 @@
         newdata:
           appliance:
             vars:
-              ansible_python_interpreter: /usr/bin/python3.8
-      when: container_image_version in ["stable-2.9", "stable-2.11"]
+              ansible_python_interpreter: "{{ test_ansible_python_interpreter }}"
+      when: test_ansible_python_interpreter is defined
 
     - name: Patch collection_name inventory data
       set_fact:
