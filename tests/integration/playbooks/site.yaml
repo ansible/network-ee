@@ -23,6 +23,11 @@
         _integration_targets: "{{ _targets.files | map(attribute='path') | list | sort }}"
       no_log: true
 
+    - name: Report missing integration targets
+      fail:
+        msg: "No integration targets found"
+      when: _integration_targets|length == 0
+
     - name: Test targets found
       debug:
         msg: "{{ _integration_targets }}"
