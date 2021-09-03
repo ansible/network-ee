@@ -5,4 +5,3 @@ build_arg_defaults:
 
 dependencies:
   galaxy: requirements.yaml
-  python: requirements.txt
