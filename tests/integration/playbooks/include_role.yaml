@@ -4,6 +4,9 @@
     - name: Run target role
       include_role:
         name: "{{ item }}"
+        apply:
+          environment:
+            ANSIBLE_ROLES_PATH: "{{ integration_tests_path }}"
 
   rescue:
     - name: Report target failure
