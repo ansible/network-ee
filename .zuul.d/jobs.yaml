@@ -29,6 +29,7 @@
       - github.com/ansible/network-ee
     requires:
       - ansible-builder-container-image
+      - python-builder-container-image
     nodeset: centos-8-stream
     vars:
       zuul_work_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}"
