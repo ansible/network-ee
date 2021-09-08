@@ -1,0 +1,24 @@
+---
+ansible-navigator:
+  ansible:
+    cmdline: -vvvv
+    config: ansible.cfg
+    inventories:
+      - inventories/vyos.yaml
+    playbook: playbooks/site.yaml
+  app: run
+  color:
+    enable: false
+  execution-environment:
+    environment-variables:
+      set:
+        # NOTE(pabelanger): Sadly we have to hardcode this role path, we should find another way.
+        ANSIBLE_ROLES_PATH: /usr/share/ansible/collections/ansible_collections/vyos/vyos/tests/integration/targets
+    image: quay.io/ansible/network-ee:latest
+    pull-policy: missing
+  logging:
+    file: logs/ansible-navigator.log
+    level: debug
+  mode: interactive
+  playbook-artifact:
+    save-as: logs/playbook_artifact.json
