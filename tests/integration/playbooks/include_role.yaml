@@ -4,6 +4,7 @@
     - name: Run target role
       include_role:
         name: "{{ item }}"
+        allow_duplicates: true
 
   rescue:
     - name: Report target failure
