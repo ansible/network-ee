@@ -134,3 +134,10 @@
         option: skip
         value: "{{ test_ansible_skip_tags }}"
       when: test_ansible_skip_tags is defined
+
+    - name: Enable FIPS mode
+      include_role:
+        name: enable-fips
+      when:
+        - test_ansible_network_cli_ssh_type is defined
+        - test_ansible_network_cli_ssh_type == 'libssh'
