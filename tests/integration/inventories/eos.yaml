@@ -1,8 +1,4 @@
 ---
-all:
-  hosts:
-    localhost:
-      ansible_connection: local
 appliance:
   hosts:
     eos:
