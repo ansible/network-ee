@@ -3,6 +3,12 @@
   vars:
     _hosts_dict: {}
   tasks:
+    - name: Enable FIPS mode
+      include_role:
+        name: enable-fips
+      when:
+        - test_fips_mode | bool
+
     - name: Ensure python3.8 is present
       become: true
       package:
