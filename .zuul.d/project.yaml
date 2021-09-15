@@ -34,6 +34,7 @@
         - network-ee-build-container-image-stable-2.9
         - network-ee-build-container-image-stable-2.10
         - network-ee-build-container-image-stable-2.11
+        - network-ee-build-container-image-stable-2.12
     gate:
       jobs: *id001
     post:
@@ -51,6 +52,10 @@
         - network-ee-upload-container-image-stable-2.11:
             vars:
               upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.12:
+            vars:
+              upload_container_image_promote: false
+
 
 - project:
     templates:
