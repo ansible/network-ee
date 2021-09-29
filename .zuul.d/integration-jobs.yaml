@@ -24,6 +24,16 @@
 
 # =============================================================================
 - job:
+    name: network-ee-integration-tests-stable-2.12
+    parent: network-ee-tests-stable-2.12
+
+- job:
+    name: network-ee-integration-tests-stable-2.12
+    parent: network-ee-integration-tests-base
+
+# =============================================================================
+
+- job:
     name: network-ee-integration-tests-stable-2.11
     parent: network-ee-tests-stable-2.11
 
