@@ -1,0 +1,15 @@
+---
+appliance:
+  hosts:
+    qradar:
+      ansible_host: qradar.example.org
+      ansible_user: zuul
+  vars:
+    ansible_become_method: ansible.netcommon.enable
+    ansible_connection: ansible.netcommon.httpapi
+    ansible_network_os: ibm.qradar.qradar
+    # NOTE(pabelanger): With stable-2.9 / stable-2.11 we need to force
+    # /usr/bin/python3.8 and not discover /usr/libexec/platform-python (python3.6)
+    # ansible_python_interpreter: /usr/bin/python3.8
+    collection_name: qradar
+    collection_namespace: ibm
