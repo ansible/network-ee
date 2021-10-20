@@ -1,0 +1,17 @@
+---
+appliance:
+  hosts:
+    eos:
+      ansible_host: eos.example.org
+      ansible_user: zuul
+  vars:
+    ansible_become_method: ansible.netcommon.enable
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_httpapi_pass: superSecretPass
+    ansible_httpapi_use_ssl: false
+    ansible_network_os: arista.eos.eos
+    # NOTE(pabelanger): With stable-2.9 / stable-2.11 we need to force
+    # /usr/bin/python3.8 and not discover /usr/libexec/platform-python (python3.6)
+    # ansible_python_interpreter: /usr/bin/python3.8
+    collection_name: eos
+    collection_namespace: arista
