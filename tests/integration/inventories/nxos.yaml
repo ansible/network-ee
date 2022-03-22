@@ -1,0 +1,19 @@
+---
+all:
+  hosts:
+    localhost:
+      ansible_connection: local
+      ansible_python_interpreter: /bin/python3.8
+appliance:
+  hosts:
+    nxos:
+      ansible_host: nxos.example.org
+      ansible_user: zuul
+  vars:
+    ansible_connection: ansible.netcommon.network_cli
+    ansible_network_os: cisco.nxos.nxos
+    # NOTE(pabelanger): With stable-2.9 / stable-2.11 we need to force
+    # /bin/python3.8 and not discover /usr/libexec/platform-python (python3.6)
+    # ansible_python_interpreter: /bin/python3.8
+    collection_name: nxos
+    collection_namespace: cisco
