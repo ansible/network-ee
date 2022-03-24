@@ -11,7 +11,8 @@ ansible-navigator:
     enable: false
   execution-environment:
     image: quay.io/ansible/network-ee:latest
-    pull-policy: missing
+    pull:
+      policy: never
   logging:
     file: logs/ansible-navigator.log
     level: debug
