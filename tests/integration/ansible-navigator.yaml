@@ -15,7 +15,7 @@ ansible-navigator:
   execution-environment:
     image: quay.io/ansible/network-ee:latest
     pull:
-      policy: never
+       policy: never
   logging:
     file: logs/ansible-navigator.log
     level: debug
