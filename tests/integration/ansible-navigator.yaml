@@ -5,7 +5,7 @@ ansible-navigator:
     config:
       path: ansible.cfg
     inventory:
-      path:
+      entries:
         - inventories/hosts.yaml
     playbook:
       path: playbooks/site.yaml
