@@ -2,10 +2,13 @@
 ansible-navigator:
   ansible:
     cmdline: -vvvv
-    config: ansible.cfg
-    inventories:
-      - inventories/hosts.yaml
-    playbook: playbooks/site.yaml
+    config:
+       path: ansible.cfg
+     inventory:
+       path:
+         - inventories/hosts.yaml
+     playbook:
+       path: playbooks/site.yaml
   app: run
   color:
     enable: false
