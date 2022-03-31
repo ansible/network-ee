@@ -1,14 +1,7 @@
 ---
-- name: include roles
-  block:
-    - name: Run target role
-      include_role:
-        name: "{{ item }}"
-
-  rescue:
-    - name: Report target failure
-      set_fact:
-        integration_target_failures: "{{ integration_target_failures + [item.split('/')[-1]] }}"
+- name: Run target role
+  include_role:
+    name: "{{ item }}"
 
 - name: Clear gathered facts
   ansible.builtin.meta: clear_facts
