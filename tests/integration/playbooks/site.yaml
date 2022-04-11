@@ -35,3 +35,14 @@
         file: include_role.yaml
       with_items:
         - "{{ _integration_targets }}"
+
+    - name: Integration tests failed
+      block:
+        - name: Show target failures
+          debug:
+            msg: "{{ integration_target_failures }}"
+
+        - name: We have a problem
+          fail:
+            msg: "One or more integration tests failed!"
+      when: integration_target_failures
