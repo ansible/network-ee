@@ -2,16 +2,20 @@
 ansible-navigator:
   ansible:
     cmdline: -vvvv
-    config: ansible.cfg
-    inventories:
+    config:
+      path: ansible.cfg
+    inventory:
+      entries:
       - inventories/hosts.yaml
-    playbook: playbooks/site.yaml
+    playbook:
+      path: playbooks/site.yaml
   app: run
   color:
     enable: false
   execution-environment:
     image: quay.io/ansible/network-ee:latest
-    pull-policy: missing
+    pull:
+      policy: missing
   logging:
     file: logs/ansible-navigator.log
     level: debug
