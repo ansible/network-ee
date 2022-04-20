@@ -8,6 +8,8 @@ USER root
 ADD _build /build
 WORKDIR /build
 
+RUN grep -vq my-mirror /etc/hosts || sed -i 's,^metalink=https://\(.*\)$,metalink=http://\1\&protocol=http\&country=US\nproxy=my-mirror:3128\n,' /etc/yum.repos.d/*.repo
+
 RUN ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles
 RUN ansible-galaxy collection install $ANSIBLE_GALAXY_CLI_COLLECTION_OPTS -r requirements.yml --collections-path /usr/share/ansible/collections
 
