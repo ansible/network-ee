@@ -11,11 +11,11 @@ RUN mkdir -p /tmp/src \
 RUN if [ -f sanity.txt ] ; then \
       echo "Installing sanity.txt requirements" ; \
       cat sanity.txt | sort -u >> /tmp/src/requirements.txt ; \
+      sed -i 's/rstcheck/rstcheck==3.3.1/' /tmp/src/requirements.txt ; \
     else \
       echo "Installing sanity.*.txt requirements" ; \
       cat sanity.*.txt | sort -u >> /tmp/src/requirements.txt ; \
     fi
-
 FROM quay.io/ansible/python-builder:latest as builder
 # =============================================================================
 
