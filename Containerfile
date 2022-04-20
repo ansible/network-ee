@@ -8,6 +8,9 @@ USER root
 ADD _build /build
 WORKDIR /build
 
+RUN rm /etc/yum.repos.d/*.repo
+COPY etc/yum.repos.d/centos.repo /etc/yum.repos.d/centos.repo
+RUN dnf distro-sync -y
 RUN ansible-galaxy role install -r requirements.yml --roles-path /usr/share/ansible/roles
 RUN ansible-galaxy collection install $ANSIBLE_GALAXY_CLI_COLLECTION_OPTS -r requirements.yml --collections-path /usr/share/ansible/collections
 

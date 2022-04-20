@@ -1,0 +1,35 @@
+[appstream]
+name=CentOS Stream $releasever - AppStream
+baseurl=http://centos.mirror.iweb.com/$stream/AppStream/$basearch/os/
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+
+[baseos]
+name=CentOS Stream $releasever - BaseOS
+baseurl=http://centos.mirror.iweb.com/$stream/BaseOS/$basearch/os/
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+
+#[extras]
+#name=CentOS Stream $releasever - Extras
+#baseurl=http://centos.mirror.iweb.com/$stream/extras/$basearch/os/
+#gpgcheck=1
+#enabled=1
+#gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
+#
+#[extras-common]
+#name=CentOS Stream $releasever - Extras common packages
+#mirrorlist=http://mirrorlist.centos.org/?release=$stream&arch=$basearch&repo=extras-extras-common
+#baseurl=http://centos.mirror.iweb.com/$stream/extras/$basearch/extras-common/
+#gpgcheck=1
+#enabled=1
+#gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-SIG-Extras
+
+[powertools]
+name=CentOS Stream $releasever - PowerTools
+baseurl=http://centos.mirror.iweb.com/$stream/PowerTools/$basearch/os/
+gpgcheck=1
+enabled=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial
